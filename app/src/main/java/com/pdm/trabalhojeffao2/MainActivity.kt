@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         viewBinding = ActivityMainBinding.inflate(layoutInflater) //usaremos o viewBinding - infalte infla o xml para poder usar
         val view= viewBinding.root
         setContentView(view)
-
+//trocando user git
         viewBinding.btAddEmploye.setOnClickListener{
 
             if(viewBinding.cpf.text.isEmpty() || viewBinding.function.text.isEmpty() || viewBinding.name.text.isEmpty() ||viewBinding.salary.text.isEmpty() ) {
