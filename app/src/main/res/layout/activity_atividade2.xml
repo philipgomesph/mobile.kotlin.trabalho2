@@ -6,12 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".Atividade2Activity">
 
+
     <TextView
         android:id="@+id/layer_tittle_trab2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Trabalho 2 - atv 2"
-        android:layout_margin="32dp"
+        android:layout_margin="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,14 +21,13 @@
         android:id="@+id/layer_tittle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Controle de Funcionario"
-        android:textSize="30dp"
+        android:text="Controle de Empresa"
+        android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_margin="32dp"
+        android:layout_margin="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layer_tittle_trab2"/>
-
 
     <Button
         android:id="@+id/bt_next_exercise"
@@ -36,22 +36,156 @@
         android:text="Next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toEndOf="@+id/bt_back_exercise"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="32dp"
+        app:layout_constraintStart_toEndOf="@+id/bt_box"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/bt_show"
         app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/bt_back_exercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="52dp"
         android:text="Back"
-        app:layout_constraintEnd_toStartOf="@+id/bt_next_exercise"
+        app:layout_constraintTop_toBottomOf="@id/bt_show"
+        app:layout_constraintEnd_toStartOf="@+id/bt_box"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="32dp"
+        app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/bt_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Caixa"
+        app:layout_constraintTop_toBottomOf="@+id/bt_show"
+        app:layout_constraintEnd_toStartOf="@+id/bt_next_exercise"
+        app:layout_constraintStart_toEndOf="@+id/bt_back_exercise"
+        android:background="@color/teal_200"
+        app:layout_constraintHorizontal_bias="0.498"
+        />
 
-        app:layout_constraintVertical_bias="0.5" />
+    <Button
+        android:id="@+id/bt_insert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Inserir"
+        app:layout_constraintTop_toBottomOf="@+id/layer_tittle2"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/bt_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Mostrar"
+        app:layout_constraintTop_toBottomOf="@+id/layer_tittle2"
+        app:layout_constraintStart_toEndOf="@+id/bt_insert"
+        app:layout_constraintHorizontal_bias="0.498"
+         />
+    <Button
+        android:id="@+id/bt_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Atualizar"
+        app:layout_constraintTop_toBottomOf="@+id/layer_tittle2"
+        app:layout_constraintStart_toEndOf="@+id/bt_show"
+        app:layout_constraintHorizontal_bias="0.498"
+        />
+    <Button
+        android:id="@+id/bt_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Delete"
+        app:layout_constraintTop_toBottomOf="@+id/layer_tittle2"
+        app:layout_constraintStart_toEndOf="@+id/bt_update"
+        app:layout_constraintHorizontal_bias="0.498"
+        />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_margin="15dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/bt_box"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="13dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/cnpj"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="32dp"
+                android:layout_marginTop="160dp"
+                android:hint="CNJP da empresa"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.765"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/cidade"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="32dp"
+                android:hint="Cidade da empresa"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cnpj" />
+
+            <EditText
+                android:id="@+id/caixa"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="32dp"
+                android:hint="Caixa da empresa"
+                android:textAlignment="center"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cidade" />
+
+            <EditText
+                android:id="@+id/volumeArmazenado"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="32dp"
+                android:hint="Voume Armazenado"
+                android:inputType="number"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/caixa" />
+
+            <EditText
+                android:id="@+id/qtdFuncionario"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="32dp"
+                android:hint="Quantidade de Funcionarios"
+                android:inputType="number"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/volumeArmazenado" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
 
 </android.support.constraint.ConstraintLayout>

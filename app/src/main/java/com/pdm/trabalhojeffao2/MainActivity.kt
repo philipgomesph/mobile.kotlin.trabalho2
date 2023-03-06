@@ -13,7 +13,9 @@ import android.view.Menu
 import android.view.MenuItem
 import com.pdm.trabalhojeffao2.databinding.ActivityMainBinding
 
+
 data class Funcionario(val cpf:String, val name:String, val function:String, val salary:Float)
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         viewBinding = ActivityMainBinding.inflate(layoutInflater) //usaremos o viewBinding - infalte infla o xml para poder usar
         val view= viewBinding.root
         setContentView(view)
-//trocando user git
+
         viewBinding.btAddEmploye.setOnClickListener{
 
             if(viewBinding.cpf.text.isEmpty() || viewBinding.function.text.isEmpty() || viewBinding.name.text.isEmpty() ||viewBinding.salary.text.isEmpty() ) {
@@ -41,6 +43,10 @@ class MainActivity : AppCompatActivity() {
                 var funcionario=Funcionario((viewBinding.cpf.text.toString()),(viewBinding.name.text.toString()),(viewBinding.function.text.toString()),salario)
 
                 listaFuncionario.add(funcionario)
+                viewBinding.cpf.text.clear()
+                viewBinding.name.text.clear()
+                viewBinding.salary.text.clear()
+                viewBinding.function.text.clear()
 
                 Log.d("Debug","Lista de Funcionarios: $listaFuncionario")
             }
