@@ -49,7 +49,10 @@ class Atividade2Activity : AppCompatActivity() {
         }
 
         viewBinding.btDelete.setOnClickListener{
+
             if(cnpjExiste(viewBinding.cnpj.text.toString())==false) Log.d("Debug","CNPJ não existe") else removeEmpresa()
+            limpaCampos()
+
         }
 
         viewBinding.btBox.setOnClickListener{
