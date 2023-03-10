@@ -62,6 +62,9 @@ class Atividade2Activity : AppCompatActivity() {
         viewBinding.btBackExercise.setOnClickListener{
             startActivity(Intent(this,MainActivity::class.java))
         }
+        viewBinding.btNextExercise.setOnClickListener{
+            startActivity(Intent(this,Atividade3Activity::class.java))
+        }
     }
 }
 
