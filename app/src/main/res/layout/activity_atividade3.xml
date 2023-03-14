@@ -9,47 +9,48 @@
 
 
     <EditText
-        android:id="@+id/tv_code"
+        android:id="@+id/et_code"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:hint="Codigo"
         android:layout_marginVertical="20dp"
         android:layout_marginHorizontal="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/tv_material"
+        app:layout_constraintEnd_toStartOf="@+id/et_material"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/tv_material"
+        android:id="@+id/et_material"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:hint="Material"
         android:layout_marginVertical="20dp"
         android:layout_marginHorizontal="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/tv_weight"
-        app:layout_constraintStart_toEndOf="@+id/tv_code"
+        app:layout_constraintEnd_toStartOf="@+id/et_weight"
+        app:layout_constraintStart_toEndOf="@+id/et_code"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/tv_weight"
+        android:id="@+id/et_weight"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginVertical="20dp"
         android:layout_marginHorizontal="10dp"
         android:hint="Peso"
-        app:layout_constraintEnd_toStartOf="@+id/tv_color"
-        app:layout_constraintStart_toEndOf="@+id/tv_material"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toStartOf="@+id/et_color"
+        app:layout_constraintStart_toEndOf="@+id/et_material"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/tv_color"
+        android:id="@+id/et_color"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginVertical="20dp"
         android:layout_marginHorizontal="10dp"
         android:hint="Cor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_weight"
+        app:layout_constraintStart_toEndOf="@+id/et_weight"
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
@@ -60,7 +61,7 @@
         tools:layout_editor_absoluteX="29dp"
         tools:layout_editor_absoluteY="92dp"
         android:layout_margin="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_material"
+        app:layout_constraintTop_toBottomOf="@+id/et_material"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <CheckBox
@@ -71,7 +72,7 @@
         tools:layout_editor_absoluteX="136dp"
         tools:layout_editor_absoluteY="91dp"
         android:layout_margin="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_material"
+        app:layout_constraintTop_toBottomOf="@+id/et_material"
         app:layout_constraintStart_toEndOf="@+id/cb_chair"
         app:layout_constraintEnd_toStartOf="@+id/cb_estante"/>
 
@@ -83,8 +84,135 @@
         tools:layout_editor_absoluteX="273dp"
         tools:layout_editor_absoluteY="92dp"
         android:layout_margin="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_material"
+        app:layout_constraintTop_toBottomOf="@+id/et_material"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_lags"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:hint="Quantidade Pernas"
+        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="visible"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@+id/cb_bed" />
+
+    <CheckBox
+        android:id="@+id/cb_chair_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Tem encosto?"
+        android:layout_margin="25dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/et_lags"
+        app:layout_constraintTop_toBottomOf="@+id/cb_bed"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_size"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:hint="Tamanho"
+        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/cb_bed"
+        app:layout_constraintEnd_toStartOf="@id/et_weight_suported"/>
+
+    <EditText
+        android:id="@+id/et_weight_suported"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Peso Suportado"
+        android:layout_margin="25dp"
+        android:visibility="invisible"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/et_size"
+        app:layout_constraintTop_toBottomOf="@+id/cb_bed"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_estante_height"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:hint="Altura da Estante"
+        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="invisible"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toBottomOf="@+id/cb_bed"
+        app:layout_constraintEnd_toStartOf="@id/et_qtd_compart"/>
+    <EditText
+        android:id="@+id/et_qtd_compart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Compartimentos"
+        android:layout_margin="25dp"
+        android:visibility="invisible"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/et_size"
+        app:layout_constraintTop_toBottomOf="@+id/cb_bed"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/bttAddMovel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicionar"
+        android:layout_margin="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btRemoveMovel"
+        app:layout_constraintTop_toBottomOf="@+id/et_lags" />
+    <Button
+        android:id="@+id/btRemoveMovel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remover"
+        android:layout_margin="15dp"
+        app:layout_constraintStart_toEndOf="@+id/bttAddMovel"
+        app:layout_constraintTop_toBottomOf="@+id/et_lags"
+        app:layout_constraintEnd_toStartOf="@id/btUpdateMovel"
+        />
+    <Button
+        android:id="@+id/btUpdateMovel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Atualizar"
+        android:layout_margin="15dp"
+        app:layout_constraintStart_toEndOf="@+id/btRemoveMovel"
+        app:layout_constraintTop_toBottomOf="@+id/et_lags"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="460dp"
+        android:layout_margin="10dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/btRemoveMovel"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="13dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/lv_movel"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_margin="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteX="94dp"
+                tools:layout_editor_absoluteY="445dp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </android.support.constraint.ConstraintLayout>
