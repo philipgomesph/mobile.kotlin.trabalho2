@@ -93,6 +93,17 @@ class Atividade3Activity : AppCompatActivity() {
         //Adicionar Movel
         viewBinding.bttAddMovel.setOnClickListener{
 
+            if(viewBinding.etCode.isEnabled()==false){
+                Toast.makeText(this,"Agora é possivel adicionar um novo movel", Toast.LENGTH_LONG).show()
+                viewBinding.etCode.setEnabled(true)
+                return@setOnClickListener
+            }
+
+            if(verificaCamposMovel()==true){
+                Toast.makeText(this,"Existe campos vazio para moveis", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
             //Atributo Moveis
             codigo = viewBinding.etCode.text.toString()
             material = viewBinding.etMaterial.text.toString()
@@ -101,6 +112,10 @@ class Atividade3Activity : AppCompatActivity() {
 
             if(viewBinding.cbChair.isChecked()){
                 //Atributos Cadeira
+                if(verificaCamposCadeira()==true){
+                    Toast.makeText(this,"Existe campos vazio para cadeira", Toast.LENGTH_LONG).show()
+                    return@setOnClickListener
+                }
                 qtdPernas = viewBinding.etLags.text.toString().toInt()
                 encosto = viewBinding.cbChairBack.isChecked()
 
@@ -116,9 +131,12 @@ class Atividade3Activity : AppCompatActivity() {
                     limpaCampo()
                 }
             }
-            if (viewBinding.cbBed.isChecked())
-            {
+            if (viewBinding.cbBed.isChecked()){
 
+                if(verificaCamposCama()==true){
+                    Toast.makeText(this,"Existe campos vazio para Cama", Toast.LENGTH_LONG).show()
+                    return@setOnClickListener
+                }
                 //Atributos Cama
                 tamanhoCama = viewBinding.etSize.text.toString()
                 pesoSuportado = viewBinding.etWeightSuported.text.toString().toFloat() //float
@@ -131,8 +149,12 @@ class Atividade3Activity : AppCompatActivity() {
                 limpaCampo()
 
             }
-            if(viewBinding.cbEstante.isChecked())
-            {
+            if(viewBinding.cbEstante.isChecked()){
+                if (verificaCamposEstante()==true){
+                    Toast.makeText(this,"Existe campos vazio para Estante", Toast.LENGTH_LONG).show()
+                    return@setOnClickListener
+                }
+
                 //Atributos Estante
                 alturaEstante = viewBinding.etEstanteHeight.text.toString().toFloat()//float
                 qtdCompartimentos = viewBinding.etQtdCompart.text.toString().toInt() //int
@@ -149,23 +171,84 @@ class Atividade3Activity : AppCompatActivity() {
         viewBinding.lvMovel.onItemClickListener=AdapterView.OnItemClickListener{
             parent,view,position,id->
 
-
-            var itemSelecionado = parent.getItemIdAtPosition(position)
+            //var itemSelecionado = parent.getItemIdAtPosition(position)
 
             var atualizaMovel = listaMoveis[position]
+            viewBinding.etCode.setEnabled(false)
 
             viewBinding.etCode.setText(atualizaMovel.code)
 
-
             viewBinding.btRemoveMovel.setOnClickListener{
 
+                Toast.makeText(this,"Movel Removido: ${listaMoveis[position]}", Toast.LENGTH_LONG).show()
                 listaMoveis.removeAt(position)
                 lvMoveis.adapter=arrayAdapterMoveis
             }
 
             viewBinding.btUpdateMovel.setOnClickListener {
+                if(verificaCamposMovel()==true){
+                    Toast.makeText(this,"Existe campos vazio para moveis", Toast.LENGTH_LONG).show()
+                    return@setOnClickListener
+                }
+                var codeToUpdate = viewBinding.etCode.text.toString()
 
-                atualizaMovel.color
+                //Atributo Moveis
+                codigo = viewBinding.etCode.text.toString()
+                material = viewBinding.etMaterial.text.toString()
+                peso = viewBinding.etWeight.text.toString().toFloat()
+                cor = viewBinding.etColor.text.toString()
+
+                if(viewBinding.cbChair.isChecked()){
+                    if(verificaCamposCadeira()==true){
+                        Toast.makeText(this,"Existe campos vazio para cadeira", Toast.LENGTH_LONG).show()
+                        return@setOnClickListener
+                    }
+                    //Atributos Cadeira
+                    qtdPernas = viewBinding.etLags.text.toString().toInt()
+                    encosto = viewBinding.cbChairBack.isChecked()
+
+                    if(qtdPernas<3)
+                    {
+                        Toast.makeText(this,"Cadeira tem menos que 3 pernas, favor inserir mais pernas", Toast.LENGTH_LONG).show()
+                    }else{
+                        var cadeira = Cadeira(codigo, material, peso, cor, qtdPernas, encosto)
+                        listaMoveis.add(position,cadeira)
+                        lvMoveis.adapter = arrayAdapterMoveis
+
+                        Toast.makeText(this,"Cadeira adicionada: $cadeira", Toast.LENGTH_LONG).show()
+                        limpaCampo()
+                    }
+                }
+                if (viewBinding.cbBed.isChecked())
+                {
+
+                    //Atributos Cama
+                    tamanhoCama = viewBinding.etSize.text.toString()
+                    pesoSuportado = viewBinding.etWeightSuported.text.toString().toFloat() //float
+
+                    var cama = Cama(codigo, material, peso, cor, tamanhoCama, pesoSuportado)
+                    listaMoveis.add(position,cama)
+                    lvMoveis.adapter = arrayAdapterMoveis
+
+                    Toast.makeText(this,"Cama adicionada: $cama", Toast.LENGTH_LONG).show()
+                    limpaCampo()
+
+                }
+                if(viewBinding.cbEstante.isChecked())
+                {
+                    //Atributos Estante
+                    alturaEstante = viewBinding.etEstanteHeight.text.toString().toFloat()//float
+                    qtdCompartimentos = viewBinding.etQtdCompart.text.toString().toInt() //int
+
+                    var estante = Estante(codigo, material, peso, cor, alturaEstante, qtdCompartimentos)
+                    listaMoveis.add(position,estante)
+                    lvMoveis.adapter = arrayAdapterMoveis
+
+                    Toast.makeText(this,"Estante adicionada: $estante", Toast.LENGTH_LONG).show()
+                    limpaCampo()
+                }
+
+                listaMoveis.removeAt(position+1)
             }
         }
 
@@ -233,4 +316,32 @@ private fun limpaCampo(){
 
     viewBinding.etEstanteHeight.text.clear()
     viewBinding.etQtdCompart.text.clear()
+}
+
+private fun verificaCamposMovel():Boolean{
+    var verific:Boolean=false
+    if(viewBinding.etCode.text.isEmpty() || viewBinding.etMaterial.text.isEmpty() || viewBinding.etWeight.text.isEmpty() || viewBinding.etColor.text.isEmpty())
+        verific=true
+    return verific
+}
+
+private fun verificaCamposCadeira():Boolean{
+    var verific:Boolean=false
+    if(viewBinding.etLags.text.isEmpty())
+        verific=true
+    return verific
+}
+
+private fun verificaCamposCama():Boolean{
+    var verific:Boolean=false
+    if(viewBinding.etSize.text.isEmpty() || viewBinding.etWeightSuported.text.isEmpty())
+        verific=true
+    return verific
+}
+
+private fun verificaCamposEstante():Boolean{
+    var verific:Boolean=false
+    if(viewBinding.etEstanteHeight.text.isEmpty() || viewBinding.etQtdCompart.text.isEmpty())
+        verific=true
+    return verific
 }
