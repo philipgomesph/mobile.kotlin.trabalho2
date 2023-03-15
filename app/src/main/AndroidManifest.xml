@@ -12,6 +12,18 @@
         android:theme="@style/Theme.TrabalhoJeffao2"
         tools:targetApi="31">
         <activity
+            android:name=".Atividade4.RemoverAlunoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Atividade4.FiltrarAlunoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Atividade4.MostrarAlunoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Atividade4.InserirAlunoActivity"
+            android:exported="false" />
+        <activity
             android:name=".Atividade4Activity"
             android:exported="false" />
         <activity
