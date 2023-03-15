@@ -17,36 +17,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/layer_tittle1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Adicione um Funcionario"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:layout_margin="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layer_tittle_trab1"/>
 
 
     <EditText
         android:id="@+id/cpf"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_margin="32dp"
+        android:layout_marginVertical="15dp"
+        android:layout_marginHorizontal="32dp"
         android:hint="CPF do Funcionario"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layer_tittle1"/>
+        app:layout_constraintTop_toBottomOf="@+id/layer_tittle_trab1"/>
 
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_margin="32dp"
+        android:layout_marginVertical="15dp"
+        android:layout_marginHorizontal="32dp"
         android:hint="Nome do Funcionario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
@@ -57,7 +48,8 @@
         android:id="@+id/function"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_margin="32dp"
+        android:layout_marginVertical="15dp"
+        android:layout_marginHorizontal="32dp"
         android:hint="Função do Funcionario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
@@ -69,7 +61,8 @@
         android:id="@+id/salary"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_margin="32dp"
+        android:layout_marginVertical="15dp"
+        android:layout_marginHorizontal="32dp"
         android:inputType="numberDecimal"
         android:hint="Salario do Funcionario"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,30 +73,39 @@
 
 
     <Button
-        android:id="@+id/bt_add_employe"
+        android:id="@+id/btAddEmploye"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Adicionar Funcionario"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_pessoas"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="32dp"
+        app:layout_constraintStart_toEndOf="@+id/btNextExercise"
+        android:layout_margin="25dp"
         app:layout_constraintVertical_bias="0.5"
-        app:layout_constraintTop_toBottomOf="@+id/salary"
-
-
-        />
+        app:layout_constraintEnd_toStartOf="@+id/btNextExercise"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/bt_next_exercise"
+        android:id="@+id/btNextExercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:layout_margin="25dp"
+        android:layout_marginBottom="156dp"
+        android:text="Voltar"
+        app:layout_constraintTop_toBottomOf="@+id/lv_pessoas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.215"
+         />
+
+    <ListView
+        android:id="@+id/lv_pessoas"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toBottomOf="@+id/salary"
         android:layout_margin="32dp"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="445dp" />
 
 </android.support.constraint.ConstraintLayout>

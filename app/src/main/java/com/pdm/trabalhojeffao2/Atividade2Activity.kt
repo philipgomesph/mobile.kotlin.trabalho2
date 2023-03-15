@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Debug
 import android.util.Log
+import android.widget.Toast
 import com.pdm.trabalhojeffao2.databinding.ActivityAtividade2Binding
 
 
@@ -60,7 +61,10 @@ class Atividade2Activity : AppCompatActivity() {
 
         }
         viewBinding.btBackExercise.setOnClickListener{
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this,MenuActivity::class.java))
+        }
+        viewBinding.btNextExercise.setOnClickListener{
+            Toast.makeText(this,"Botao desabilitado",Toast.LENGTH_LONG).show()
         }
     }
 }
