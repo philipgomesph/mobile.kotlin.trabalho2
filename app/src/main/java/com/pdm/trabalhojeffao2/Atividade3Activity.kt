@@ -68,28 +68,6 @@ class Atividade3Activity : AppCompatActivity() {
         lvMoveis.adapter = arrayAdapterMoveis
         // Logica BackEnd
 
-        /*
-       //Moveis
-        codigo = viewBinding.etCode.text.toString()
-        material = viewBinding.etMaterial.text.toString()
-        peso = viewBinding.etWeight.text.toString().toFloat()
-        cor = viewBinding.etColor.text.toString()
-
-
-        //Atributos Cadeira
-        qtdPernas = viewBinding.etLags.text.toString().toInt()
-        encosto = viewBinding.cbChairBack.isChecked()
-
-        //Atributos Cama
-        tamanhoCama = viewBinding.etSize.text.toString()
-        pesoSuportado = viewBinding.etWeightSuported.text.toString().toFloat() //float
-
-        //Atributos Estante
-        alturaEstante = viewBinding.etEstanteHeight.text.toString().toFloat()//float
-        qtdCompartimentos = viewBinding.etQtdCompart.text.toString().toInt() //int
-        */
-
-
         //Adicionar Movel
         viewBinding.bttAddMovel.setOnClickListener{
 
@@ -171,8 +149,6 @@ class Atividade3Activity : AppCompatActivity() {
         viewBinding.lvMovel.onItemClickListener=AdapterView.OnItemClickListener{
             parent,view,position,id->
 
-            //var itemSelecionado = parent.getItemIdAtPosition(position)
-
             var atualizaMovel = listaMoveis[position]
             viewBinding.etCode.setEnabled(false)
 
@@ -183,6 +159,7 @@ class Atividade3Activity : AppCompatActivity() {
                 Toast.makeText(this,"Movel Removido: ${listaMoveis[position]}", Toast.LENGTH_LONG).show()
                 listaMoveis.removeAt(position)
                 lvMoveis.adapter=arrayAdapterMoveis
+                limpaCampo()
             }
 
             viewBinding.btUpdateMovel.setOnClickListener {
@@ -249,6 +226,7 @@ class Atividade3Activity : AppCompatActivity() {
                 }
 
                 listaMoveis.removeAt(position+1)
+
             }
         }
 

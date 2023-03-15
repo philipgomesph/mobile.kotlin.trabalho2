@@ -13,7 +13,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
-import com.pdm.trabalhojeffao2.databinding.ActivityMainBinding
+import com.pdm.trabalhojeffao2.databinding.ActivityAtividade1Binding
+
 
 
 data class Funcionario(val cpf:String, val name:String, val function:String, val salary:Float){
@@ -25,13 +26,13 @@ lateinit var lv_pessoas : ListView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewBinding: ActivityMainBinding
+    private lateinit var viewBinding: ActivityAtividade1Binding
     var listaFuncionario = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewBinding = ActivityMainBinding.inflate(layoutInflater) //usaremos o viewBinding - infalte infla o xml para poder usar
+        viewBinding = ActivityAtividade1Binding.inflate(layoutInflater) //usaremos o viewBinding - infalte infla o xml para poder usar
         val view= viewBinding.root
         setContentView(view)
 
@@ -81,7 +82,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun resultintent(): Intent {
-        val intent= Intent(this,Atividade2Activity::class.java)
+        val intent= Intent(this,MenuActivity::class.java)
 
         return intent
     }
