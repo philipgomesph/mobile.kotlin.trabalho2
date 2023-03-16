@@ -37,6 +37,13 @@ class Atividade4Activity : AppCompatActivity() {
 
     }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        val listaAluno1 = savedInstanceState.getStringArrayList("TInserirResult")
+        println("Voltou para tela inicial")
+        println("\n valor retornado, lista: $listaAluno1")
+    }
     private fun resultintent( opc:Int): Intent {
 
         when(opc){
@@ -48,4 +55,6 @@ class Atividade4Activity : AppCompatActivity() {
         }
         return intent
     }
+
+
 }

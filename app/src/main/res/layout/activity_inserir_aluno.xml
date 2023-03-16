@@ -58,7 +58,8 @@
         android:layout_marginVertical="20dp"
         android:hint="Nota no Mec"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/et_num_de_alunos_na_olimpiada"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/swit_etapa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,11 +74,12 @@
         android:layout_marginVertical="20dp"
         android:hint="Olimpiada"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/bt_inserir_aluno"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/swit_etapa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_nota_no_mec"
+        app:layout_constraintTop_toBottomOf="@+id/et_numero_de_alunos"
         app:layout_constraintVertical_bias="0.5" />
 
     <Button
@@ -89,7 +91,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_num_de_alunos_na_olimpiada"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/swit_etapa"
+        />
+
+    <Switch
+        android:id="@+id/swit_etapa"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Ensino Medio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bt_inserir_aluno"
+        tools:layout_editor_absoluteY="413dp"
+        app:layout_constraintTop_toBottomOf="@+id/et_nota_no_mec"/>
+
 
 </android.support.constraint.ConstraintLayout>
