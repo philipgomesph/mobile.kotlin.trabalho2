@@ -3,28 +3,40 @@ package com.pdm.trabalhojeffao2
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.pdm.trabalhojeffao2.Atividade4.FiltrarAlunoActivity
-import com.pdm.trabalhojeffao2.Atividade4.InserirAlunoActivity
-import com.pdm.trabalhojeffao2.Atividade4.MostrarAlunoActivity
-import com.pdm.trabalhojeffao2.Atividade4.RemoverAlunoActivity
+import android.util.Log
+import com.pdm.trabalhojeffao2.Atividade4.*
 import com.pdm.trabalhojeffao2.databinding.ActivityAtividade4Binding
 
+var alunoEnsSupMock = EnsinoSuperior("123","Philipe",12,10F)
+var alunoEnsMedMock = EnsinoMedio("345","Jefferson",10,5)
 class Atividade4Activity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityAtividade4Binding
-    private lateinit var intent: Intent
+    //private lateinit var intent: Intent
+    private var listaAluno=ArrayList<Aluno>()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityAtividade4Binding.inflate(layoutInflater)
         val view= viewBinding.root
         setContentView(view)
+        listaAluno.add(alunoEnsSupMock)
+        listaAluno.add(alunoEnsMedMock)
+
+
+
 
         viewBinding.btInserirAluno.setOnClickListener {
             startActivity(resultintent(1))
+            var codigo = intent.extras?.getString("codigo")
+            println("CODIGO RECEBIDO $codigo")
         }
 
         viewBinding.btMostrarAluno.setOnClickListener {
-            startActivity(resultintent(2))
+            //startActivity(resultintent(2))
+            println(listaAluno)
+
         }
 
         viewBinding.btFiltrarAluno.setOnClickListener {
@@ -35,14 +47,25 @@ class Atividade4Activity : AppCompatActivity() {
             startActivity(resultintent(4))
         }
 
+
+        val bundle: Bundle? = intent.extras
+        bundle?.apply{
+
+            var listaAlunoRecebida = getSerializable("listaAluno")
+
+            if(listaAlunoRecebida!= null){
+                println("AQUI ESTA O RETORNO DA ACTIVITY:\n")
+                println(listaAlunoRecebida)
+
+            }
+        }
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
 
-        val listaAluno1 = savedInstanceState.getStringArrayList("TInserirResult")
-        println("Voltou para tela inicial")
-        println("\n valor retornado, lista: $listaAluno1")
+
+    override fun onRestart() {
+        super.onRestart()
+       // val name = intent.extras?.getString(KEY_NAME,"Key name nao enviada")
     }
     private fun resultintent( opc:Int): Intent {
 
