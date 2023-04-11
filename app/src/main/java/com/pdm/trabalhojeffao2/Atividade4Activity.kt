@@ -73,7 +73,7 @@ class Atividade4Activity : AppCompatActivity() {
     private fun resultintent( opc:Int): Intent {
 
         when(opc){
-            1-> intent= Intent(this, InserirAlunoActivity::class.java)
+            1-> intent= Intent(this, InserirCursoActivity::class.java)
             2-> intent= Intent(this, MostrarAlunoActivity::class.java)
             3-> intent= Intent(this, FiltrarAlunoActivity::class.java)
             4-> intent= Intent(this, RemoverAlunoActivity::class.java)

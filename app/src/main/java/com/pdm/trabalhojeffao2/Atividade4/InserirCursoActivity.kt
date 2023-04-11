@@ -6,22 +6,23 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.pdm.trabalhojeffao2.Atividade4Activity
-import com.pdm.trabalhojeffao2.databinding.ActivityInserirAlunoBinding
+import com.pdm.trabalhojeffao2.databinding.ActivityInserirCursoBinding
 
 
 
 //Variaveis
 private var listaAluno=ArrayList<Curso>()
-private lateinit var viewBinding: ActivityInserirAlunoBinding
+private lateinit var viewBinding: ActivityInserirCursoBinding
 
 
 
-class InserirAlunoActivity : AppCompatActivity() {
+
+class InserirCursoActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewBinding = ActivityInserirAlunoBinding.inflate(layoutInflater)
+        viewBinding = ActivityInserirCursoBinding.inflate(layoutInflater)
         var view= viewBinding.root
         setContentView(view)
 

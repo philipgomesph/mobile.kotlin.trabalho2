@@ -7,6 +7,6 @@ import com.pdm.trabalhojeffao2.R
 class RemoverAlunoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_remover_aluno)
+        setContentView(R.layout.activity_remover_curso)
     }
 }

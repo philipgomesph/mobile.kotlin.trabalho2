@@ -21,7 +21,7 @@
             android:name=".Atividade4.MostrarAlunoActivity"
             android:exported="false" />
         <activity
-            android:name=".Atividade4.InserirAlunoActivity"
+            android:name=".Atividade4.InserirCursoActivity"
             android:exported="false" />
         <activity
             android:name=".Atividade4Activity"

@@ -11,7 +11,8 @@
     <string name="atividade_3">Atividade 3</string>
     <string name="inserir_aluno">Inserir Aluno</string>
     <string name="atividade_4">Atividade 4</string>
-    <string name="remover_aluno">Remover Aluno</string>
-    <string name="filtrar_alunos">Filtrar Alunos</string>
-    <string name="mostrar_alunos">Mostrar Alunos</string>
+    <string name="remover_aluno">Remover Curso</string>
+    <string name="filtrar_alunos">Filtrar Curso</string>
+    <string name="mostrar_alunos">Mostrar Curso</string>
+    <string name="inserir_curso">Inserir Curso</string>
 </resources>

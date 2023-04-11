@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
-import com.pdm.trabalhojeffao2.databinding.ActivityMostrarAlunoBinding
+import com.pdm.trabalhojeffao2.databinding.ActivityMostrarCursoBinding
 
 
 
 // View Bind
-private lateinit var viewBinding: ActivityMostrarAlunoBinding
+private lateinit var viewBinding: ActivityMostrarCursoBinding
 
 //List View
 lateinit var lvAlunos:ListView
@@ -21,7 +21,7 @@ class MostrarAlunoActivity : AppCompatActivity() {
     private var listaAluno=ArrayList<Curso>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewBinding = ActivityMostrarAlunoBinding.inflate(layoutInflater)
+        viewBinding = ActivityMostrarCursoBinding.inflate(layoutInflater)
         val view = viewBinding.root
         setContentView(view)
 
@@ -49,23 +49,41 @@ class MostrarAlunoActivity : AppCompatActivity() {
         lvAlunos.adapter = arrayAdapterAlunos
 
         viewBinding.btMaiorNumAlunos.setOnClickListener {
-
-
             var maiorNum=0
             var nomeCurso=""
             listaAluno.forEach {
-
                 if (maiorNum<it.numeroDeAlunos)
                 {
                     maiorNum=it.numeroDeAlunos
                     nomeCurso=it.nome
                 }
-
             }
             if(listaAluno.isEmpty()==true){
                 Toast.makeText(this,"Lista de alunos esta vazia",Toast.LENGTH_LONG).show()
             }else{
                 Toast.makeText(this, "Curso com Maior numero de alunos é o $nomeCurso com $maiorNum alunos.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        viewBinding.btTotalAlunos.setOnClickListener {
+            var totalAlunos=0
+            listaAluno.forEach {
+                totalAlunos += it.numeroDeAlunos
+            }
+            Toast.makeText(this, "Numero total de alunos é $totalAlunos", Toast.LENGTH_SHORT).show()
+        }
+
+        viewBinding.btMenorNota.setOnClickListener {
+            var menorNota = 9999999F
+            var nomeCurso=""
+            listaAluno.forEach { 
+                if(it is EnsinoSuperior){
+                    if (menorNota>it.notaNoMec){
+                        menorNota=it.notaNoMec
+                        nomeCurso=it.nome
+                    }
+                    Toast.makeText(this, "Curso com menor nota no mec é $nomeCurso com nota $menorNota", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

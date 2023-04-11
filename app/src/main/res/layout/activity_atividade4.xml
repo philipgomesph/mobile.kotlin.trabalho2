@@ -10,7 +10,7 @@
         android:id="@+id/bt_inserir_aluno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/inserir_aluno"
+        android:text="@string/inserir_curso"
         app:layout_constraintBottom_toTopOf="@+id/bt_mostrar_aluno"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
