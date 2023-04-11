@@ -24,19 +24,20 @@ class Atividade4Activity : AppCompatActivity() {
         listaAluno.add(alunoEnsSupMock)
         listaAluno.add(alunoEnsMedMock)
 
-
-
-
         viewBinding.btInserirAluno.setOnClickListener {
+
             startActivity(resultintent(1))
-            var codigo = intent.extras?.getString("codigo")
-            println("CODIGO RECEBIDO $codigo")
+            //var codigo = intent.extras?.getString("codigo")
+            //println("CODIGO RECEBIDO $codigo")
+            finish()
         }
 
         viewBinding.btMostrarAluno.setOnClickListener {
             //startActivity(resultintent(2))
-            println(listaAluno)
-
+            //println(listaAluno)
+            val intent = Intent(this, MostrarAlunoActivity::class.java)
+            intent.putExtra("listaMostra",listaAluno)
+            this.startActivity(intent)
         }
 
         viewBinding.btFiltrarAluno.setOnClickListener {
@@ -52,6 +53,9 @@ class Atividade4Activity : AppCompatActivity() {
         bundle?.apply{
 
             var listaAlunoRecebida = getSerializable("listaAluno")
+
+            val alunos = listaAlunoRecebida as ArrayList<Aluno>
+            listaAluno.addAll(alunos)
 
             if(listaAlunoRecebida!= null){
                 println("AQUI ESTA O RETORNO DA ACTIVITY:\n")

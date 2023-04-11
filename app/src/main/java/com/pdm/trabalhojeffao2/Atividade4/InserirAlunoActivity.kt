@@ -55,11 +55,9 @@ class InserirAlunoActivity : AppCompatActivity() {
             intent.putExtra("codigo",codigo )
             println("Lista de ALUNOS: $listaAluno /////")
             intent.putExtra("listaAluno",listaAluno)
-
-
-            this.startActivity(intent)
             limpaCampo()
             finish()
+            this.startActivity(intent)
         }
 
 

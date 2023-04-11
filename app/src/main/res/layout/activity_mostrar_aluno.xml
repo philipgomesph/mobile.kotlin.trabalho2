@@ -6,4 +6,81 @@
     android:layout_height="match_parent"
     tools:context=".Atividade4.MostrarAlunoActivity">
 
+    <TextView
+        android:id="@+id/layer_tittle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alunos Cadastrados"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+
+        android:layout_height="460dp"
+        android:layout_margin="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/bt_maior_num_alunos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layer_tittle1"
+        app:layout_constraintVertical_bias="0.5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/lvAluno"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                tools:layout_editor_absoluteX="32dp"
+                tools:layout_editor_absoluteY="32dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/bt_maior_num_alunos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Curso c/ Mais Aluno"
+        app:layout_constraintBottom_toTopOf="@+id/bt_total_alunos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/bt_total_alunos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total de Alunos"
+        app:layout_constraintBottom_toTopOf="@+id/bt_menor_nota"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_maior_num_alunos"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/bt_menor_nota"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menor nota no Mec"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_total_alunos"
+        app:layout_constraintVertical_bias="0.5" />
 </android.support.constraint.ConstraintLayout>
