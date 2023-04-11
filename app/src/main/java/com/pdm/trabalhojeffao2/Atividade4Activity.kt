@@ -3,16 +3,15 @@ package com.pdm.trabalhojeffao2
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import com.pdm.trabalhojeffao2.Atividade4.*
 import com.pdm.trabalhojeffao2.databinding.ActivityAtividade4Binding
 
-var alunoEnsSupMock = EnsinoSuperior("123","Philipe",12,10F)
-var alunoEnsMedMock = EnsinoMedio("345","Jefferson",10,5)
+var alunoEnsSupMock = EnsinoSuperior("123","PDM",12,10F)
+var alunoEnsMedMock = EnsinoMedio("345","Eletronica",10,5)
 class Atividade4Activity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityAtividade4Binding
     //private lateinit var intent: Intent
-    private var listaAluno=ArrayList<Aluno>()
+    private var listaAluno=ArrayList<Curso>()
 
 
 
@@ -54,7 +53,7 @@ class Atividade4Activity : AppCompatActivity() {
 
             var listaAlunoRecebida = getSerializable("listaAluno")
 
-            val alunos = listaAlunoRecebida as ArrayList<Aluno>
+            val alunos = listaAlunoRecebida as ArrayList<Curso>
             listaAluno.addAll(alunos)
 
             if(listaAlunoRecebida!= null){

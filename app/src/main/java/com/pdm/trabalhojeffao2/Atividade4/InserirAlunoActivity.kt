@@ -6,13 +6,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.pdm.trabalhojeffao2.Atividade4Activity
-import com.pdm.trabalhojeffao2.R
 import com.pdm.trabalhojeffao2.databinding.ActivityInserirAlunoBinding
 
 
 
 //Variaveis
-private var listaAluno=ArrayList<Aluno>()
+private var listaAluno=ArrayList<Curso>()
 private lateinit var viewBinding: ActivityInserirAlunoBinding
 
 
@@ -39,7 +38,7 @@ class InserirAlunoActivity : AppCompatActivity() {
                 var ensSup = EnsinoSuperior(codigo,nome,numAluno,notaMec)
                 listaAluno.add(ensSup)
 
-                Toast.makeText(this, "Aluno cadastrado: $ensSup", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Curso cadastrado: $ensSup", Toast.LENGTH_SHORT).show()
             }
             if(viewBinding.switEtapa.isChecked()==true){
 
@@ -48,7 +47,7 @@ class InserirAlunoActivity : AppCompatActivity() {
 
                 listaAluno.add(ensMed)
 
-                Toast.makeText(this, "Aluno cadastrado: $ensMed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Curso cadastrado: $ensMed", Toast.LENGTH_SHORT).show()
             }
 
             val intent = Intent(this, Atividade4Activity::class.java)

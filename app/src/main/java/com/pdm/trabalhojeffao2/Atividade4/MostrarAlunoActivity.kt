@@ -18,7 +18,7 @@ lateinit var lvAlunos:ListView
 
 class MostrarAlunoActivity : AppCompatActivity() {
     //Deletar aqui
-    private var listaAluno=ArrayList<Aluno>()
+    private var listaAluno=ArrayList<Curso>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityMostrarAlunoBinding.inflate(layoutInflater)
@@ -31,7 +31,7 @@ class MostrarAlunoActivity : AppCompatActivity() {
 
             var listaAlunoRecebida = getSerializable("listaMostra")
 
-            val alunos = listaAlunoRecebida as ArrayList<Aluno>
+            val alunos = listaAlunoRecebida as ArrayList<Curso>
             listaAluno.addAll(alunos)
 
             if(listaAluno!= null){
