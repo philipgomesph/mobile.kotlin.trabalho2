@@ -17,9 +17,10 @@ private lateinit var viewBinding: ActivityMostrarCursoBinding
 lateinit var lvAlunos:ListView
 
 class MostrarAlunoActivity : AppCompatActivity() {
-    //Deletar aqui
-    private var listaAluno=ArrayList<Curso>()
+
+    private var listaCurso=ArrayList<Curso>()
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         viewBinding = ActivityMostrarCursoBinding.inflate(layoutInflater)
         val view = viewBinding.root
@@ -32,33 +33,33 @@ class MostrarAlunoActivity : AppCompatActivity() {
             var listaAlunoRecebida = getSerializable("listaMostra")
 
             val alunos = listaAlunoRecebida as ArrayList<Curso>
-            listaAluno.addAll(alunos)
+            listaCurso.addAll(alunos)
 
-            if(listaAluno!= null){
+            if(listaCurso!= null){
                 println("Array que chegou da ACTIVITY:\n")
-                println(listaAluno)
+                println(listaCurso)
 
             }
         }
 
         println("Array que chegou da ACTIVITY 11:\n")
-        println(listaAluno)
+        println(listaCurso)
 
         lvAlunos = viewBinding.lvAluno
-        var arrayAdapterAlunos = ArrayAdapter(this, R.layout.simple_list_item_1 , listaAluno)
+        var arrayAdapterAlunos = ArrayAdapter(this, R.layout.simple_list_item_1 , listaCurso)
         lvAlunos.adapter = arrayAdapterAlunos
 
         viewBinding.btMaiorNumAlunos.setOnClickListener {
             var maiorNum=0
             var nomeCurso=""
-            listaAluno.forEach {
+            listaCurso.forEach {
                 if (maiorNum<it.numeroDeAlunos)
                 {
                     maiorNum=it.numeroDeAlunos
                     nomeCurso=it.nome
                 }
             }
-            if(listaAluno.isEmpty()==true){
+            if(listaCurso.isEmpty()==true){
                 Toast.makeText(this,"Lista de alunos esta vazia",Toast.LENGTH_LONG).show()
             }else{
                 Toast.makeText(this, "Curso com Maior numero de alunos é o $nomeCurso com $maiorNum alunos.", Toast.LENGTH_SHORT).show()
@@ -67,7 +68,7 @@ class MostrarAlunoActivity : AppCompatActivity() {
 
         viewBinding.btTotalAlunos.setOnClickListener {
             var totalAlunos=0
-            listaAluno.forEach {
+            listaCurso.forEach {
                 totalAlunos += it.numeroDeAlunos
             }
             Toast.makeText(this, "Numero total de alunos é $totalAlunos", Toast.LENGTH_SHORT).show()
@@ -76,7 +77,7 @@ class MostrarAlunoActivity : AppCompatActivity() {
         viewBinding.btMenorNota.setOnClickListener {
             var menorNota = 9999999F
             var nomeCurso=""
-            listaAluno.forEach { 
+            listaCurso.forEach {
                 if(it is EnsinoSuperior){
                     if (menorNota>it.notaNoMec){
                         menorNota=it.notaNoMec

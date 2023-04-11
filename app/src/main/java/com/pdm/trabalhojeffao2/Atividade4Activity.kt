@@ -11,7 +11,7 @@ var alunoEnsMedMock = EnsinoMedio("345","Eletronica",10,5)
 class Atividade4Activity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityAtividade4Binding
     //private lateinit var intent: Intent
-    private var listaAluno=ArrayList<Curso>()
+    private var listaCurso=ArrayList<Curso>()
 
 
 
@@ -20,8 +20,8 @@ class Atividade4Activity : AppCompatActivity() {
         viewBinding = ActivityAtividade4Binding.inflate(layoutInflater)
         val view= viewBinding.root
         setContentView(view)
-        listaAluno.add(alunoEnsSupMock)
-        listaAluno.add(alunoEnsMedMock)
+        listaCurso.add(alunoEnsSupMock)
+        listaCurso.add(alunoEnsMedMock)
 
         viewBinding.btInserirAluno.setOnClickListener {
 
@@ -33,14 +33,16 @@ class Atividade4Activity : AppCompatActivity() {
 
         viewBinding.btMostrarAluno.setOnClickListener {
             //startActivity(resultintent(2))
-            //println(listaAluno)
+            //println(listaCurso)
             val intent = Intent(this, MostrarAlunoActivity::class.java)
-            intent.putExtra("listaMostra",listaAluno)
+            intent.putExtra("listaMostra",listaCurso)
             this.startActivity(intent)
         }
 
         viewBinding.btFiltrarAluno.setOnClickListener {
-            startActivity(resultintent(3))
+            val intent = Intent(this, FiltrarCursoActivity::class.java)
+            intent.putExtra("filtraCurso",listaCurso)
+            this.startActivity(intent)
         }
 
         viewBinding.btRemoverAluno.setOnClickListener {
@@ -51,10 +53,10 @@ class Atividade4Activity : AppCompatActivity() {
         val bundle: Bundle? = intent.extras
         bundle?.apply{
 
-            var listaAlunoRecebida = getSerializable("listaAluno")
+            var listaAlunoRecebida = getSerializable("listaCurso")
 
             val alunos = listaAlunoRecebida as ArrayList<Curso>
-            listaAluno.addAll(alunos)
+            listaCurso.addAll(alunos)
 
             if(listaAlunoRecebida!= null){
                 println("AQUI ESTA O RETORNO DA ACTIVITY:\n")
@@ -64,18 +66,12 @@ class Atividade4Activity : AppCompatActivity() {
         }
     }
 
-
-
-    override fun onRestart() {
-        super.onRestart()
-       // val name = intent.extras?.getString(KEY_NAME,"Key name nao enviada")
-    }
     private fun resultintent( opc:Int): Intent {
 
         when(opc){
             1-> intent= Intent(this, InserirCursoActivity::class.java)
             2-> intent= Intent(this, MostrarAlunoActivity::class.java)
-            3-> intent= Intent(this, FiltrarAlunoActivity::class.java)
+            3-> intent= Intent(this, FiltrarCursoActivity::class.java)
             4-> intent= Intent(this, RemoverAlunoActivity::class.java)
             else -> println("Intent invalida")
         }

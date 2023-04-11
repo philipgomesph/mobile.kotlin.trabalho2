@@ -15,4 +15,6 @@
     <string name="filtrar_alunos">Filtrar Curso</string>
     <string name="mostrar_alunos">Mostrar Curso</string>
     <string name="inserir_curso">Inserir Curso</string>
+    <string name="codigo_curso">Digite o codigo</string>
+    <string name="mostrar_tudo">Mostrar tudo</string>
 </resources>

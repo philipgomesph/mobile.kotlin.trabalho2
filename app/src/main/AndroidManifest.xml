@@ -15,7 +15,7 @@
             android:name=".Atividade4.RemoverAlunoActivity"
             android:exported="false" />
         <activity
-            android:name=".Atividade4.FiltrarAlunoActivity"
+            android:name=".Atividade4.FiltrarCursoActivity"
             android:exported="false" />
         <activity
             android:name=".Atividade4.MostrarAlunoActivity"

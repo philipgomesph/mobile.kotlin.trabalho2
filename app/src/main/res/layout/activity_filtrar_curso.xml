@@ -4,6 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Atividade4.FiltrarAlunoActivity">
+    tools:context=".Atividade4.FiltrarCursoActivity">
 
+    <Button
+        android:id="@+id/bt_filtra_codigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filtrar p/ Codigo"
+        app:layout_constraintBottom_toTopOf="@+id/bt_mostra_tudo"
+        app:layout_constraintEnd_toStartOf="@+id/tv_filtra_codigo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <EditText
+        android:id="@+id/tv_filtra_codigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/codigo_curso"
+        app:layout_constraintBottom_toTopOf="@+id/bt_mostra_tudo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bt_filtra_codigo"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/bt_mostra_tudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mostrar_tudo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_filtra_codigo"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+
+        android:layout_height="460dp"
+        android:layout_margin="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/bt_filtra_codigo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/lvCurso"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                tools:layout_editor_absoluteX="32dp"
+                tools:layout_editor_absoluteY="32dp" />
+
+        </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
