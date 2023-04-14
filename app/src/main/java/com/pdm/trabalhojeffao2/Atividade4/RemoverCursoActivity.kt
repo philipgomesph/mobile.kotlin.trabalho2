@@ -6,7 +6,6 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
-import com.pdm.trabalhojeffao2.R
 import com.pdm.trabalhojeffao2.databinding.ActivityRemoverCursoBinding
 
 //viewBind
@@ -27,19 +26,7 @@ class RemoverAlunoActivity : AppCompatActivity() {
         val view = viewBinding.root
         setContentView(view)
 
-        val bundle: Bundle? = intent.extras
-        bundle?.apply{
 
-            var listaCursoRecebida = getSerializable("removeCurso")
-
-            val cursos = listaCursoRecebida as ArrayList<Curso>
-            listaCurso.addAll(cursos)
-
-            if(listaCurso!= null){
-                println("Array de cursos que chegou da ACTIVITY:\n")
-                println(listaCurso)
-            }
-        }
 
         lvCursosDelete = viewBinding.lvCursoDelete
         var arrayAdapterCurso = ArrayAdapter(this, android.R.layout.simple_list_item_1 , listaCurso)
@@ -55,6 +42,20 @@ class RemoverAlunoActivity : AppCompatActivity() {
             lvCursosDelete.adapter=arrayAdapterCurso
 
             //listaCurso.removeAt(position+1)
+        }
+
+        val bundle: Bundle? = intent.extras
+        bundle?.apply{
+
+            var listaCursoRecebida = getSerializable("removeCurso")
+
+            val cursos = listaCursoRecebida as ArrayList<Curso>
+            listaCurso.addAll(cursos)
+
+            if(listaCurso!= null){
+                println("Array de cursos que chegou da ACTIVITY:\n")
+                println(listaCurso)
+            }
         }
     }
 }

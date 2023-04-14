@@ -46,7 +46,11 @@ class Atividade4Activity : AppCompatActivity() {
         }
 
         viewBinding.btRemoverAluno.setOnClickListener {
-            startActivity(resultintent(4))
+           // startActivity(resultintent(4))
+            val intent = Intent(this, RemoverAlunoActivity::class.java)
+            intent.putExtra("removeCurso",listaCurso)
+            this.startActivity(intent)
+
         }
 
 
